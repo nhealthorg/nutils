@@ -39,6 +39,15 @@ jobs:
         if: inputs.version != ''
         run: yarn bumpp ${{ inputs.version }} --no-commit --no-tag --no-push
 
+      - name: Get version from tag or package.json
+        id: version
+        run: |
+          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            echo "tag=${github.ref#refs/tags/}" >> $GITHUB_OUTPUT
+          else
+            echo "tag=v$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+          fi
+
       - run: npx changelogithub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
