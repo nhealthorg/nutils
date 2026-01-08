@@ -16,6 +16,10 @@ on:
         required: false
         type: string
 
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -35,22 +39,51 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Update version if specified
-        if: inputs.version != ''
-        run: yarn bumpp ${{ inputs.version }} --no-commit --no-tag --no-push
-
-      - name: Get version from tag or package.json
+      - name: Determine version
         id: version
         run: |
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            echo "tag=${github.ref#refs/tags/}" >> $GITHUB_OUTPUT
+          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+            # Tag-based release: extract version from tag
+            VERSION="${{ github.ref }}"
+            VERSION="${VERSION#refs/tags/v}"
+            echo "tag=v${VERSION}" >> $GITHUB_OUTPUT
+            echo "version=${VERSION}" >> $GITHUB_OUTPUT
+            echo "is_tag_release=true" >> $GITHUB_OUTPUT
           else
-            echo "tag=v$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+            # Manual dispatch: use package.json or input version
+            if [[ -n "${{ inputs.version }}" ]]; then
+              VERSION="${{ inputs.version }}"
+            else
+              VERSION=$(node -p "require('./package.json').version")
+            fi
+            echo "version=${VERSION}" >> $GITHUB_OUTPUT
+            echo "tag=v${VERSION}" >> $GITHUB_OUTPUT
+            echo "is_tag_release=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: Update version if needed
+        if: steps.version.outputs.is_tag_release == 'false' && inputs.version != ''
+        run: yarn bumpp ${{ inputs.version }} --no-commit --no-tag --no-push
+
+      - name: Create and push tag for manual dispatch
+        if: steps.version.outputs.is_tag_release == 'false'
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git tag -a ${{ steps.version.outputs.tag }} -m "Release ${{ steps.version.outputs.tag }}" || true
+          git push origin ${{ steps.version.outputs.tag }} || true
 
       - run: npx changelogithub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Build package
+        run: npm run prepack
+      
+      - name: Publish package
+        run: chmod +x ./scripts/release.sh && ./scripts/release.sh
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
       
       - name: Publish package
         run: chmod +x ./scripts/release.sh && ./scripts/release.sh
