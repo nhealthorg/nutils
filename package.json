@@ -1,5 +1,5 @@
 {
-  "name": "@nhealthorg/nutils",
+  "name": "@nhealth/nutils",
   "version": "0.0.1",
   "description": "Shared Nuxt.js v4 module with components, composables, and utilities",
   "type": "module",
@@ -7,7 +7,8 @@
     ".": {
       "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "require": "./dist/module.cjs",
+      "style": "./dist/runtime/app/assets/styles.css"
     }
   },
   "main": "./dist/module.cjs",
@@ -27,20 +28,21 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.14.0"
+    "@nuxt/kit": "^4.2.2"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.6.0",
-    "@nuxt/eslint-config": "^0.6.0",
-    "@nuxt/module-builder": "^0.8.0",
-    "@nuxt/schema": "^3.14.0",
-    "@nuxt/test-utils": "^3.14.0",
-    "changelogen": "^0.5.7",
-    "eslint": "^9.16.0",
-    "nuxt": "^3.14.0",
-    "typescript": "^5.7.2",
-    "vitest": "^3.2.0",
-    "vue-tsc": "^2.1.10"
+    "@nuxt/devtools": "^3.1.1",
+    "@nuxt/eslint-config": "^1.12.1",
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^4.2.2",
+    "@nuxt/test-utils": "^3.23.0",
+    "@nuxt/ui": "^4.3.0",
+    "changelogen": "^0.6.2",
+    "eslint": "^9.39.2",
+    "nuxt": "^4.2.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16",
+    "vue-tsc": "^3.2.2"
   },
   "repository": {
     "type": "git",

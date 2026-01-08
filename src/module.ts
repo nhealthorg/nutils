@@ -1,5 +1,6 @@
-import { defineNuxtModule, addComponentsDir, addImportsDir, createResolver } from '@nuxt/kit'
-import { fileURLToPath } from 'node:url'
+import { defineNuxtModule, addComponentsDir, addImportsDir, createResolver, addServerImports, addImports } from '@nuxt/kit'
+
+const resolver = createResolver(import.meta.url)
 
 export interface ModuleOptions {
   /**
@@ -11,40 +12,43 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: '@nhealthorg/nutils',
+    name: '@nhealth/nutils',
     configKey: 'nutils',
     compatibility: {
-      nuxt: '>=3.0.0'
-    }
+      nuxt: '>=4.0.0',
+    },
   },
   defaults: {
-    enabled: true
+    enabled: true,
   },
   async setup(options, nuxt) {
     if (!options.enabled) {
       return
     }
 
-    const { resolve } = createResolver(fileURLToPath(import.meta.url))
-
     // Auto-register components from the runtime/components directory
     addComponentsDir({
-      path: resolve('./runtime/components'),
+      path: resolver.resolve('./runtime/app/components'),
       pathPrefix: false,
-      prefix: '',
-      global: true
+      prefix: 'NUtils',
+      global: true,
     })
 
     // Auto-import composables from the runtime/composables directory
-    addImportsDir(resolve('./runtime/composables'))
+    addImportsDir(resolver.resolve('./runtime/app/composables'))
 
-    // Auto-import utilities from the runtime/utils directory
-    addImportsDir(resolve('./runtime/utils'))
+    // Auto-import server/client side utilities from the runtime/utils directory
+    const formatters = [
+      'formatDate',
+      'formatNumber',
+      'truncate',
+    ]
+    formatters.forEach((name) => {
+      addServerImports({ name, as: name, from: resolver.resolve('./runtime/shared/formatters') })
+      addImports({ name, as: name, from: resolver.resolve('./runtime/shared/formatters') })
+    })
 
-    nuxt.options.build = nuxt.options.build || {}
     nuxt.options.build.transpile = nuxt.options.build.transpile || []
     nuxt.options.build.transpile.push('@nhealthorg/nutils')
-  }
+  },
 })
-
-

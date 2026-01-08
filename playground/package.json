@@ -7,5 +7,10 @@
     "build": "nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview"
+  },
+  "dependencies": {
+    "nuxt": "*",
+    "@nuxt/ui": "*",
+    "@nuxt/kit": "*"
   }
 }

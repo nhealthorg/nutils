@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@source "../../../src/runtime/app/";
+
+:root {
+  color-scheme: light;
+}

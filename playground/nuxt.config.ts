@@ -1,5 +1,13 @@
 export default defineNuxtConfig({
-  modules: ['../src/module'],
-  devtools: { enabled: true },
-  compatibilityDate: '2024-04-03'
+  modules: [
+    '@nuxt/ui',
+    '../src/module',
+  ],
+  devtools: {
+    enabled: true,
+  },
+  css: ['~/assets/tailwind.css'],
+  colorMode: {
+    preference: 'light',
+  },
 })

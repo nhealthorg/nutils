@@ -1,0 +1,7 @@
+/**
+ * Nutils Module Styles
+ * Import this in your main CSS file: @import "@nhealth/nutils";
+ */
+
+/* Tailwind content scanning for module components */
+@source "../components/**/*.vue";
