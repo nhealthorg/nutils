@@ -1,6 +1,6 @@
 {
   "name": "@nhealth/nutils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Shared Nuxt.js v4 module with components, composables, and utilities",
   "type": "module",
   "exports": {
