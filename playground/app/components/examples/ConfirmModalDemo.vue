@@ -2,7 +2,9 @@
   <div class="space-y-4">
     <UCard class="shadow-md">
       <template #header>
-        <h2 class="text-xl font-semibold text-slate-900">Confirm Modal</h2>
+        <h2 class="text-xl font-semibold text-slate-900">
+          Confirm Modal
+        </h2>
       </template>
       <div class="space-y-6">
         <p class="text-sm text-slate-600">
@@ -11,7 +13,9 @@
 
         <!-- Basic Confirm -->
         <div class="space-y-2">
-          <p class="font-medium text-slate-900">Basic Confirmation</p>
+          <p class="font-medium text-slate-900">
+            Basic Confirmation
+          </p>
           <UButton
             color="primary"
             @click="handleBasicConfirm"
@@ -22,7 +26,9 @@
 
         <!-- Destructive Action -->
         <div class="space-y-2">
-          <p class="font-medium text-slate-900">Destructive Action</p>
+          <p class="font-medium text-slate-900">
+            Destructive Action
+          </p>
           <UButton
             color="error"
             @click="handleDestructiveConfirm"
@@ -33,7 +39,9 @@
 
         <!-- With Input Validation -->
         <div class="space-y-2">
-          <p class="font-medium text-slate-900">Input Validation</p>
+          <p class="font-medium text-slate-900">
+            Input Validation
+          </p>
           <UButton
             color="warning"
             @click="handleInputValidation"
@@ -44,7 +52,9 @@
 
         <!-- With Checkbox -->
         <div class="space-y-2">
-          <p class="font-medium text-slate-900">Checkbox Validation</p>
+          <p class="font-medium text-slate-900">
+            Checkbox Validation
+          </p>
           <UButton
             color="info"
             @click="handleCheckboxConfirm"
@@ -54,11 +64,22 @@
         </div>
 
         <!-- Result Display -->
-        <div v-if="lastResult" class="rounded-lg bg-slate-50 p-4 border border-slate-200">
-          <p class="text-sm font-medium text-slate-600">Last Result:</p>
+        <div
+          v-if="lastResult"
+          class="rounded-lg bg-slate-50 p-4 border border-slate-200"
+        >
+          <p class="text-sm font-medium text-slate-600">
+            Last Result:
+          </p>
           <p class="text-sm text-slate-700 mt-2">
-            <span v-if="lastResult.confirmed" class="text-emerald-600">✓ Confirmed</span>
-            <span v-else class="text-slate-600">✗ Cancelled</span>
+            <span
+              v-if="lastResult.confirmed"
+              class="text-emerald-600"
+            >✓ Confirmed</span>
+            <span
+              v-else
+              class="text-slate-600"
+            >✗ Cancelled</span>
           </p>
         </div>
       </div>

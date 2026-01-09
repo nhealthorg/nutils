@@ -3,7 +3,9 @@
     <!-- StatCard Examples -->
     <UCard class="shadow-md">
       <template #header>
-        <h2 class="text-xl font-semibold text-slate-900">StatCard Component</h2>
+        <h2 class="text-xl font-semibold text-slate-900">
+          StatCard Component
+        </h2>
       </template>
       <div class="space-y-4">
         <p class="text-sm text-slate-600">
@@ -59,7 +61,9 @@
     <!-- StatCounter Examples -->
     <UCard class="shadow-md">
       <template #header>
-        <h2 class="text-xl font-semibold text-slate-900">StatCounter Component</h2>
+        <h2 class="text-xl font-semibold text-slate-900">
+          StatCounter Component
+        </h2>
       </template>
       <div class="space-y-4">
         <p class="text-sm text-slate-600">
@@ -103,7 +107,9 @@
     <!-- LiveIndicator Examples -->
     <UCard class="shadow-md">
       <template #header>
-        <h2 class="text-xl font-semibold text-slate-900">LiveIndicator Component</h2>
+        <h2 class="text-xl font-semibold text-slate-900">
+          LiveIndicator Component
+        </h2>
       </template>
       <div class="space-y-4">
         <p class="text-sm text-slate-600">
@@ -129,7 +135,9 @@
     <!-- Interactive Demo -->
     <UCard class="shadow-md">
       <template #header>
-        <h2 class="text-xl font-semibold text-slate-900">Interactive Demo</h2>
+        <h2 class="text-xl font-semibold text-slate-900">
+          Interactive Demo
+        </h2>
       </template>
       <div class="space-y-4">
         <p class="text-sm text-slate-600">
@@ -143,8 +151,8 @@
                 :key="status"
                 :variant="currentStatus === status ? 'soft' : 'ghost'"
                 :color="currentStatus === status ? 'primary' : 'gray'"
-                @click="currentStatus = status as any"
                 class="capitalize"
+                @click="currentStatus = status as any"
               >
                 {{ status }}
               </UButton>
@@ -152,7 +160,9 @@
             <NUtilsLiveIndicator :status="currentStatus" />
           </div>
           <div class="rounded-lg bg-slate-50 p-4">
-            <p class="text-xs font-mono text-slate-500">Current status: {{ currentStatus }}</p>
+            <p class="text-xs font-mono text-slate-500">
+              Current status: {{ currentStatus }}
+            </p>
           </div>
         </div>
       </div>

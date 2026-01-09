@@ -2,11 +2,15 @@
   <div class="space-y-4">
     <UCard class="shadow-md">
       <template #header>
-        <h2 class="text-xl font-semibold text-slate-900">Utility Functions</h2>
+        <h2 class="text-xl font-semibold text-slate-900">
+          Utility Functions
+        </h2>
       </template>
       <div class="space-y-4">
         <div class="space-y-2">
-          <p class="text-sm font-medium text-slate-600">Formatted Date</p>
+          <p class="text-sm font-medium text-slate-600">
+            Formatted Date
+          </p>
           <UAlert
             icon="i-heroicons-calendar-20-solid"
             color="info"
@@ -15,7 +19,9 @@
           />
         </div>
         <div class="space-y-2">
-          <p class="text-sm font-medium text-slate-600">Formatted Number</p>
+          <p class="text-sm font-medium text-slate-600">
+            Formatted Number
+          </p>
           <UAlert
             icon="i-heroicons-hashtag-20-solid"
             color="info"
@@ -24,7 +30,9 @@
           />
         </div>
         <div class="space-y-2">
-          <p class="text-sm font-medium text-slate-600">Truncated Text</p>
+          <p class="text-sm font-medium text-slate-600">
+            Truncated Text
+          </p>
           <UAlert
             icon="i-heroicons-document-text-20-solid"
             color="info"

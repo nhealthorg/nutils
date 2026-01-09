@@ -9,7 +9,7 @@ export const formatDate = (date: Date | number, locale = 'en-US'): string => {
   return dateObj.toLocaleDateString(locale, {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   })
 }
 

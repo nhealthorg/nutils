@@ -29,7 +29,10 @@
     <template #body>
       <div class="space-y-4">
         <!-- Description or text -->
-        <div v-if="opts.description || opts.text" class="space-y-2">
+        <div
+          v-if="opts.description || opts.text"
+          class="space-y-2"
+        >
           <p class="text-sm text-gray-600 dark:text-gray-400">
             {{ opts.description || opts.text }}
           </p>

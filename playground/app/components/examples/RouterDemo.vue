@@ -2,7 +2,9 @@
   <div class="space-y-4">
     <UCard class="shadow-md">
       <template #header>
-        <h2 class="text-xl font-semibold text-slate-900">Component Router</h2>
+        <h2 class="text-xl font-semibold text-slate-900">
+          Component Router
+        </h2>
       </template>
       <div class="space-y-4">
         <p class="text-sm text-slate-600">
@@ -10,7 +12,9 @@
         </p>
         <div class="space-y-3">
           <div class="rounded-lg bg-slate-50 p-4">
-            <p class="text-xs font-mono text-slate-500">Current route: {{ route?.path || '/' }}</p>
+            <p class="text-xs font-mono text-slate-500">
+              Current route: {{ route?.path || '/' }}
+            </p>
           </div>
           <div class="rounded-lg border border-slate-200 bg-white p-4">
             <p class="text-sm text-slate-700">

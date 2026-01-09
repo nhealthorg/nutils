@@ -5,17 +5,27 @@
   >
     <div class="flex items-start justify-between gap-3">
       <div class="flex-1">
-        <p class="text-xs font-semibold uppercase tracking-widest" :class="labelColor">
+        <p
+          class="text-xs font-semibold uppercase tracking-widest"
+          :class="labelColor"
+        >
           {{ label }}
         </p>
         <p class="text-3xl font-bold mt-2 tracking-tight">
           {{ formatValue(value) }}
         </p>
-        <p v-if="description" class="text-xs mt-2" :class="descriptionColor">
+        <p
+          v-if="description"
+          class="text-xs mt-2"
+          :class="descriptionColor"
+        >
           {{ description }}
         </p>
       </div>
-      <div v-if="icon" class="flex-shrink-0">
+      <div
+        v-if="icon"
+        class="flex-shrink-0"
+      >
         <UIcon
           :name="icon"
           class="w-6 h-6"
@@ -100,4 +110,3 @@ function formatValue(value: number | string): string {
   return value.toString()
 }
 </script>
-

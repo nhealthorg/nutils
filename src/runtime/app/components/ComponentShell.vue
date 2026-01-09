@@ -67,9 +67,9 @@ const containerStyle = computed(() => {
 const navigationItems = computed(() => {
   if (!props.items) return []
 
-  const transformItem = (item: any): any => {
-    const path = (item as any).path
-    const transformed: any = {
+  const transformItem = (item: NavigationMenuItem): NavigationMenuItem => {
+    const path = item.path
+    const transformed = {
       ...item,
       onSelect: (e: Event) => {
         e.preventDefault()
@@ -89,7 +89,7 @@ const navigationItems = computed(() => {
       // Check if children is an array of arrays or a flat array
       if (Array.isArray(item.children[0]) && Array.isArray(item.children[0][0])) {
         // Children is array of arrays
-        transformed.children = item.children.map((childGroup: any[]) =>
+        transformed.children = item.children.map(childGroup =>
           childGroup.map(transformItem),
         )
       }

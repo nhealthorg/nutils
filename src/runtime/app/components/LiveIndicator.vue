@@ -3,7 +3,10 @@
     class="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full text-xs font-medium transition-colors"
     :class="statusClasses"
   >
-    <div class="w-2 h-2 rounded-full" :class="dotClasses" />
+    <div
+      class="w-2 h-2 rounded-full"
+      :class="dotClasses"
+    />
     <span>{{ statusText }}</span>
   </div>
 </template>
