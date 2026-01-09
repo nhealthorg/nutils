@@ -9,8 +9,9 @@ export default defineBuildConfig({
     '@nuxt/schema',
     'nuxt',
   ],
-  declaration: true,
+  declaration: 'compatible',
   rollup: {
     emitCJS: true,
   },
+  failOnWarn: false,
 })
