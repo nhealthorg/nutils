@@ -36,8 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useComponentRouter } from '#imports'
+import { computed, useComponentRouter } from '#imports'
 import type { NavigationMenuItem } from '@nuxt/ui'
 
 const props = withDefaults(

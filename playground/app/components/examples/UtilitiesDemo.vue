@@ -46,6 +46,8 @@
 </template>
 
 <script setup lang="ts">
+import { formatDate, formatNumber, truncate } from '#imports'
+
 const formattedDate = formatDate(new Date())
 const formattedNumber = formatNumber(1234567.89)
 const truncatedText = truncate('This is a very long text that needs to be truncated for display purposes', 30)

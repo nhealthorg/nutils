@@ -3,6 +3,9 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '../src/module',
   ],
+  imports: {
+    autoImport: false,
+  },
   devtools: {
     enabled: true,
   },

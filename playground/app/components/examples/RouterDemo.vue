@@ -28,6 +28,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed, useComponentRouter } from '#imports'
+
 const router = useComponentRouter()
 const route = computed(() => router.route?.value)
 </script>

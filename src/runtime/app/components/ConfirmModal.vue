@@ -114,7 +114,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useConfirmModalState, useConfirmModalActions } from '#imports'
 import type { ConfirmModalOptions } from '../composables/useConfirmModal'
 
 const state = useConfirmModalState()

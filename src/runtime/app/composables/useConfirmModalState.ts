@@ -1,3 +1,4 @@
+import { useState, type Ref } from '#imports'
 import type { InternalRequest, ConfirmModalOptions } from './useConfirmModal'
 
 type ConfirmModalState = {

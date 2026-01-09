@@ -88,7 +88,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from '#imports'
+import { ref, useConfirmModal } from '#imports'
 
 const lastResult = ref<{ confirmed: boolean } | null>(null)
 const confirm = useConfirmModal()
