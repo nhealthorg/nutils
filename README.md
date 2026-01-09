@@ -5,7 +5,7 @@ A comprehensive Nuxt v4 module providing shared components, composables, utiliti
 ## ✨ Features
 
 - 🎨 **Auto-registered Components** - Use components without explicit imports
-- 🔧 **Auto-imported Composables** - Access composables anywhere in your Nuxt app
+- 🔧 **Auto-imported Composables** - Access composables anywhere in your Nuxt app (useComponentRouter, useConfirmModal)
 - 🛠️ **Utility Functions** - Common utility functions auto-imported
 - 🧭 **Component-based Routing** - Dynamic component rendering with query/hash/memory routing modes
 - 📊 **Pre-built UI Components** - StatCard, StatCounter, LiveIndicator, ConfirmModal, and more
@@ -237,32 +237,6 @@ async function handleDelete() {
 - `iconColor` (string) - Icon color variant
 
 ### Composables
-
-#### useCounter
-Simple reactive counter state management.
-
-```vue
-<script setup>
-const { count, double, increment, decrement, reset } = useCounter(0)
-</script>
-
-<template>
-  <div>
-    <p>Count: {{ count }}</p>
-    <p>Double: {{ double }}</p>
-    <button @click="increment">+1</button>
-    <button @click="decrement">-1</button>
-    <button @click="reset">Reset</button>
-  </div>
-</template>
-```
-
-**Returns:**
-- `count` - Current count (Ref<number>)
-- `double` - Double of current count (Computed<number>)
-- `increment()` - Increment by 1
-- `decrement()` - Decrement by 1
-- `reset()` - Reset to initial value
 
 #### useComponentRouter
 Dynamic component routing without Nuxt's file-based routing.

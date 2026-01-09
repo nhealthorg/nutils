@@ -12,7 +12,9 @@
       >
         <template #leading>
           <div class="p-4 border-b border-gray-200">
-            <h1 class="text-lg font-semibold text-slate-900">NUtils Playground</h1>
+            <h1 class="text-lg font-semibold text-slate-900">
+              NUtils Playground
+            </h1>
           </div>
         </template>
         <div class="p-4">
@@ -20,7 +22,9 @@
         </div>
         <template #trailing>
           <div class="p-4 border-t border-gray-200">
-            <p class="text-sm text-slate-600">© 2026 NUtils</p>
+            <p class="text-sm text-slate-600">
+              © 2026 NUtils
+            </p>
           </div>
         </template>
       </NUtilsComponentShell>
@@ -35,7 +39,6 @@
 // Define routes for the component router
 const routes = {
   '/stats': async () => await import('./components/examples/StatsDemo.vue'),
-  '/composables': async () => await import('./components/examples/ComposablesDemo.vue'),
   '/utilities': async () => await import('./components/examples/UtilitiesDemo.vue'),
   '/router': async () => await import('./components/examples/RouterDemo.vue'),
   '/confirm-modal': async () => await import('./components/examples/ConfirmModalDemo.vue'),
@@ -48,11 +51,6 @@ const navigationItems = [
       label: 'Stats Components',
       path: '/stats',
       icon: 'i-heroicons-chart-bar-20-solid',
-    },
-    {
-      label: 'Composables',
-      path: '/composables',
-      icon: 'i-heroicons-cog-6-tooth-20-solid',
     },
     {
       label: 'Utilities',
