@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { formatDate, formatNumber, truncate } from '../src/runtime/utils/formatters'
+import { formatDate, formatNumber, truncate } from '../src/runtime/shared/formatters'
 
 describe('formatters', () => {
   describe('formatDate', () => {
